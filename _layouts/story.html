@@ -1,0 +1,6 @@
+---
+layout: default
+---
+{% for blok in page.story.content.body %}
+  {% include {{blok.component}}.html blok=blok %}
+{% endfor %}

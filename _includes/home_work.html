@@ -1,0 +1,86 @@
+{{ blok._editable }}
+<div
+  class="row align-left align-top large-row large-collapse">
+  <div
+    id="791" class="column small-12 elements-home_work">
+    <div
+      class="row container align-center">
+      <div
+        class="column small-12 x-large-10">
+        <div
+          class="logos">
+          {% for blok in blok.items %}
+            <a href="#" class="{% if forloop.first == true %}active{% endif %}" style="width:{{ blok.logo_width }}px; height:{{ blok.logo_height }}px;" data-client-target="{{ forloop.index }}" data-client-name="{{ blok.headline }}">
+              <span style="background-image: url('{{ blok.logo }}');" class="normal-state"></span>
+              <span style="background-image: url('{{ blok.logo }}');" class="hover-state"></span>
+            </a>
+          {% endfor %}
+        </div>
+        <div
+          class="logos-show-small">
+          <div
+            class="background-image">
+            <div
+              class="image-box active first-logo" data-client-nav="1"></div>
+            <div
+              class="image-box second-logo" data-client-nav="2"></div>
+            <div
+              class="image-box third-logo" data-client-nav="3"></div>
+            <div
+              class="image-box fourth-logo" data-client-nav="4"></div>
+            <div
+              class="image-box fifth-logo" data-client-nav="5"></div>
+            <div
+              class="image-box sixth-logo" data-client-nav="6"></div>
+            <a
+              href="#" class="arrow left" data-client-prev><i
+              class="icon flaticon-play"></i></a>
+            <a
+              href="#" class="arrow right" data-client-next><i
+              class="icon flaticon-play"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% for blok in blok.items %}
+    <div
+      class="row container align-right work-container{% if forloop.first == true %} active{% endif %}" data-client="{{ forloop.index }}">
+      {{ blok._editable }}
+      <div
+        class="column small-12 large-5 xlarge-4">
+        <h2>{{ blok.headline }}</h2>
+        <p>{{ blok.subheadline }}</p>
+      </div>
+      <div
+        class="column small-12 large-7 our-work">
+        <div
+          class="image-container">
+          <div
+            class="background-image" style="background-image: url('{{ blok.desktop_image }}')">
+            <div
+              class="bar-navigation"></div>
+            <div
+              class="screen-mobile">
+              <img
+                src="//cache.togetherdigital.ie/system/images/made/system/images/remote/https_uploads.togetherdigital.ie/general/home-portfolio/dmi-desktop1_1200_872_60_c1_c_t.jpg" alt="Digital Marketing Institute" />
+            </div>
+          </div>
+        </div>
+        <div
+          class="phone-container">
+          <div
+            class="phone-image" style="background-image: url(//cache.togetherdigital.ie/system/images/made/system/images/remote/https_uploads.togetherdigital.ie/general/home-portfolio/dmi-phone1_280_510_60_c1_c_t.jpg)"></div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+
+    <div
+      class="row container view-all">
+      <div
+        class="column small-12"><a
+        href="/work/websites" class="button secondary">View All Work</a></div>
+    </div>
+  </div>
+</div>
