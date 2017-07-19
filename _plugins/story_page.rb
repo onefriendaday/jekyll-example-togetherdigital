@@ -3,10 +3,10 @@ require "storyblok"
 module Jekyll
 
   class StoryPage < Page
-    def initialize(site, base, story)
+    def initialize(site, base, dir, story)
       @site = site
       @base = base
-      @dir = story['full_slug']
+      @dir = dir
       @name = 'index.html'
 
       self.process(@name)
@@ -25,7 +25,11 @@ module Jekyll
       stories = res['data']['stories']
 
       stories.each do |story|
-        site.pages << StoryPage.new(site, site.source, story)
+        site.pages << StoryPage.new(site, site.source, story['full_slug'], story)
+
+        if story['full_slug'] == 'home'
+          site.pages << StoryPage.new(site, site.source, '', story)
+        end
       end
     end
   end
