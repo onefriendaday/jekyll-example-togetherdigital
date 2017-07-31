@@ -1,9 +1,12 @@
 require 'rack/jekyll'
 require 'jekyll'
 require 'yaml'
+require 'fileutils'
 
 class Rebuilder
   def self.call(env)
+    FileUtils.rm_rf("./_site/.", secure: true)
+
     conf = Jekyll.configuration({
       'source'      => './',
       'destination' => './_site'
