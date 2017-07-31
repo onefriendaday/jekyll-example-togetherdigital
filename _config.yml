@@ -36,3 +36,4 @@ exclude:
   - app.js
   - package.json
   - node_modules
+  - Procfile
