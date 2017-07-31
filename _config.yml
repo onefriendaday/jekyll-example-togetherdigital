@@ -38,3 +38,5 @@ exclude:
   - node_modules
   - Procfile
   - Rakefile
+  - vendor
+  - config.ru
