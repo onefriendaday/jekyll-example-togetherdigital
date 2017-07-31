@@ -7,10 +7,7 @@ class Rebuilder
   def self.call(env)
     FileUtils.rm_rf("./_site/.", secure: true)
 
-    conf = Jekyll.configuration({
-      'source'      => './',
-      'destination' => './_site'
-    })
+    conf = Jekyll.configuration(:source => './', :destination => './_site')
 
     Jekyll::Site.new(conf).process
 
@@ -25,7 +22,7 @@ app = Rack::Builder.new do
   end
 
   map "/" do
-    run Rack::Jekyll.new
+    run Rack::Jekyll.new(:auto => true, :source => './', :destination => './_site')
   end
 end
 

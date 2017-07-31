@@ -40,3 +40,7 @@ exclude:
   - Rakefile
   - vendor
   - config.ru
+  - Gemfile
+  - Gemfile.lock
+  - version.json
+  - README.md
