@@ -498,7 +498,7 @@ var woopra_logged=readCookie('woopra_logged');</script>
         storyblok.init()
         storyblok.on('change', function() {
           $.ajax({
-            url: 'http://localhost:3000/'
+            url: 'https://obscure-cliffs-15442.herokuapp.com/rebuild'
           })
           .done(function() {
             window.location.reload()
