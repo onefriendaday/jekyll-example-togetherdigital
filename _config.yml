@@ -37,3 +37,4 @@ exclude:
   - package.json
   - node_modules
   - Procfile
+  - Rakefile
