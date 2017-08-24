@@ -1,6 +1,12 @@
 ---
 layout: default
 ---
+<ul class="navi">
+{% for navitem in page.global.content.Components[0].items %}
+  <li><a href="/{{ page.links[navitem.link.id].slug }}">{{ navitem.title }}</a></li>
+{% endfor %}
+</ul>
+
 {% for blok in page.story.content.body %}
   {% include {{blok.component}}.html blok=blok %}
 {% endfor %}

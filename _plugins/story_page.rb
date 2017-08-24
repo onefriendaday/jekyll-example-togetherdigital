@@ -3,7 +3,7 @@ require "storyblok"
 module Jekyll
 
   class StoryPage < Page
-    def initialize(site, base, dir, story, links)
+    def initialize(site, base, dir, story, links, global)
       @site = site
       @base = base
       @dir = dir
@@ -14,6 +14,7 @@ module Jekyll
       self.data['story'] = story
       self.data['title'] = story['name']
       self.data['links'] = links
+      self.data['global'] = global
     end
   end
 
@@ -28,11 +29,14 @@ module Jekyll
       res_links = client.links
       links = res_links['data']['links']
 
+      res_global = client.story('settings/menus')
+      global = res_global['data']['story']
+
       stories.each do |story|
-        site.pages << StoryPage.new(site, site.source, story['full_slug'], story, links)
+        site.pages << StoryPage.new(site, site.source, story['full_slug'], story, links, global)
 
         if story['full_slug'] == 'home'
-          site.pages << StoryPage.new(site, site.source, '', story, links)
+          site.pages << StoryPage.new(site, site.source, '', story, links, global)
         end
       end
     end
